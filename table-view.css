@@ -1,0 +1,23 @@
+.react-table-view {
+    margin: 0;
+    padding: 2em;
+}
+
+.react-table-view .button-secondary {
+  background: #fff;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.react-table-view .pure-button {
+  margin: 0.25em;
+  font-weight: 200;
+}
+
+.react-table-view .seconds {
+  font-size: 200%;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0;
+  color: #666;
+}

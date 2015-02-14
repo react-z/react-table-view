@@ -1,0 +1,53 @@
+{
+  "name": "react-table-view",
+  "version": "0.0.1",
+  "description": "a sortable table-view component",
+  "main": "js/table-view.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StevenIseki/react-table-view.git"
+  },
+  "author": "Steven Iseki",
+  "license": "MIT",
+  "homepage": "https://github.com/StevenIseki/react-table-view.git",
+  "peerDependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "connect": "*",
+    "connect-livereload": "*",
+    "gulp-livereload": "*",
+    "serve-static": "*",
+    "serve-index": "*",
+    "opn": "*",
+    "gulp-react": "*",
+    "react": "*",
+    "browserify": "*",
+    "watchify": "*",
+    "reactify": "*",
+    "vinyl-source-stream": "*",
+    "tape": "*"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "android-browser/latest"
+    ]
+  },
+  "scripts": {
+    "test": "tape test/tests.js"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "react ui",
+    "table-view",
+    "browserify",
+    "pure css"
+  ]
+}
