@@ -8,7 +8,7 @@ var SecondsTohhmmss = require('../js/SecondsTohhmmss.js');
  * A simple sortable table component.
 **/
 
-var TableView = React.createClass({
+var TableView = React.createClass({displayName: "TableView",
   getInitialState: function(){
      return {
        data: this.props.data,
@@ -41,42 +41,42 @@ var TableView = React.createClass({
   render: function(){
     return (
 
-      <div className="react-table-view">
+      React.createElement("div", {className: "react-table-view"}, 
 
-        <table className="pure-table">
-            <thead>
-                <tr>
-                {
+        React.createElement("table", {className: "pure-table"}, 
+            React.createElement("thead", null, 
+                React.createElement("tr", null, 
+                
                   this.state.fields.map(function(f) {
-                    return <th>
-                        <span>{f}</span>
-                        <div className="sort-up"></div>
-                      </th>
+                    return React.createElement("th", null, 
+                        React.createElement("span", null, f), 
+                        React.createElement("div", {className: "sort-up"})
+                      )
                     ;
                   })
-                }
+                
 
-                </tr>
-            </thead>
+                )
+            ), 
 
-            <tbody>
+            React.createElement("tbody", null, 
 
-            {
+            
               this.props.data.map(function(d) {
-               return <tr key={d.id} className="pure-table-odd">
-                    <td>{d.id}</td>
-                    <td>{d.make}</td>
-                    <td>{d.model}</td>
-                    <td>{d.year}</td>
-                </tr>
+               return React.createElement("tr", {key: d.id, className: "pure-table-odd"}, 
+                    React.createElement("td", null, d.id), 
+                    React.createElement("td", null, d.make), 
+                    React.createElement("td", null, d.model), 
+                    React.createElement("td", null, d.year)
+                )
                ;
              })
-             }
+             
 
-            </tbody>
-        </table>
+            )
+        )
       
-      </div>
+      )
 
     );
   }

@@ -1,23 +1,28 @@
 .react-table-view {
-    margin: 0;
-    padding: 2em;
-}
-
-.react-table-view .button-secondary {
-  background: #fff;
-  color: #666;
-  border: 1px solid #ddd;
-}
-
-.react-table-view .pure-button {
-  margin: 0.25em;
-  font-weight: 200;
-}
-
-.react-table-view .seconds {
-  font-size: 200%;
+  margin: 0;
+  padding: 2em;
+  font-size: 150%;
   font-weight: 300;
   line-height: 1.5;
-  margin: 0;
-  color: #666;
+}
+
+.react-table-view .pure-table thead {
+  color: #ABEAFC !important;
+  background: black;
+}
+
+.react-table-view .sort-up {
+  display: inline-block;
+  margin-left: 0.5em;
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #ABEAFC;
+}
+
+.react-table-view .sort-down {
+  display: inline-block;
+  margin-left: 0.5em;
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;  
+  border-top: 0.5em solid #ABEAFC;
 }
