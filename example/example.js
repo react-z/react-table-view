@@ -1,6 +1,7 @@
 var React = require('react');
 var TableView = require('../jsx/table-view.jsx');
 
+// must ensure all of your fields have values or react table view will not render
 var DATA = [ 
   { id: 0, make: 'Honda', model: 'NSX', year: '1997'},
   { id: 1, make: 'Toyota', model: 'Supra', year: '1996'},

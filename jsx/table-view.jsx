@@ -22,7 +22,6 @@ var TableView = React.createClass({
     // can use Object.keys(data)[0]; for this
     for(var d in this.props.data) {
       if(this.props.data.hasOwnProperty(d)){
-        console.log(d + this.props.data[d]);
         var data = this.props.data[d];
         var fieldsArray = []
         for(var i in data){
