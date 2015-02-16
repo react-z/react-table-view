@@ -32,6 +32,26 @@ var TableView = React.createClass({displayName: "TableView",
       }
     }
   },
+  sort: function () {
+    var sortField = this.refs.myTextInput.getDOMNode().getAttribute("data-field-name");
+    var data = this.state.data;
+
+    for(var i = 0; i < data.length; i++){
+      console.log(data[i]);
+      // looping for no reason
+    }
+
+    data.sort(this.compare);
+    this.setState({ data: data });
+
+  },
+  compare: function(a,b) {
+    if (a.make < b.make)
+       return -1;
+    if (a.make > b.make)
+      return 1;
+    return 0;
+  },
   componentDidMount: function() {
     this.parseFields();
   },
@@ -49,10 +69,10 @@ var TableView = React.createClass({displayName: "TableView",
                   this.state.fields.map(function(f) {
                     return React.createElement("th", null, 
                         React.createElement("span", null, f), 
-                        React.createElement("div", {className: "sort-up"})
+                        React.createElement("div", {ref: "myTextInput", "data-field-name": f, onClick: this.sort, className: "sort-up"})
                       )
                     ;
-                  })
+                  }.bind(this))
                 
 
                 )
