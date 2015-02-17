@@ -12,7 +12,8 @@ var TableView = React.createClass({
   getInitialState: function(){
      return {
        data: this.props.data,
-       fields: []
+       fields: [],
+       sortField: ''
      }
   },
   /**
@@ -32,23 +33,28 @@ var TableView = React.createClass({
       }
     }
   },
-  sort: function () {
-    var sortField = this.refs.myTextInput.getDOMNode().getAttribute("data-field-name");
-    var data = this.state.data;
+  sort: function (e) {
+    var field = e.target.getAttribute("data-field-name");
+    this.setState({ sortField: field });
 
-    for(var i = 0; i < data.length; i++){
-      console.log(data[i]);
-      // looping for no reason
-    }
-
+    var data = this.state.data;    
     data.sort(this.compare);
     this.setState({ data: data });
 
   },
   compare: function(a,b) {
-    if (a.make < b.make)
+
+    // is this check needed?  
+    for (var i = 0; i < this.state.fields.length; i++) {
+      if(this.state.fields[i] === this.state.sortField){
+        this.state.sortField = this.state.fields[i];
+      }
+    };
+
+
+    if (a[this.state.sortField] < b[this.state.sortField])
        return -1;
-    if (a.make > b.make)
+    if (a[this.state.sortField] > b[this.state.sortField])
       return 1;
     return 0;
   },
