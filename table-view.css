@@ -13,16 +13,24 @@
 
 .react-table-view .sort-up {
   display: inline-block;
-  margin-left: 0.5em;
-  border-left: 0.5em solid transparent;
-  border-right: 0.5em solid transparent;
-  border-bottom: 0.5em solid #ABEAFC;
+  margin-left: 0.6em;
+  border-left: 0.6em solid transparent;
+  border-right: 0.6em solid transparent;
+  border-bottom: 0.6em solid #ABEAFC;
 }
 
 .react-table-view .sort-down {
   display: inline-block;
-  margin-left: 0.5em;
-  border-left: 0.5em solid transparent;
-  border-right: 0.5em solid transparent;  
-  border-top: 0.5em solid #ABEAFC;
+  margin-left: 0.6em;
+  border-left: 0.6em solid transparent;
+  border-right: 0.6em solid transparent;  
+  border-top: 0.6em solid #ABEAFC;
+}
+
+.react-table-view .hidden {
+  visibility: hidden;
+}
+
+.react-table-view .visible {
+  visibility: visible;
 }

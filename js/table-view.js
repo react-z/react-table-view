@@ -35,7 +35,14 @@ var TableView = React.createClass({displayName: "TableView",
   },
   sort: function (e) {
     var field = e.target.getAttribute("data-field-name");
+    if(field === null){
+      field = e.target.parentNode.getAttribute("data-field-name");
+    }
+
+    this.refs[field].getDOMNode().className = "sort-down visible";
+
     this.setState({ sortField: field });
+    this.state.sortField = field;
 
     var data = this.state.data;    
     data.sort(this.compare);
@@ -43,14 +50,6 @@ var TableView = React.createClass({displayName: "TableView",
 
   },
   compare: function(a,b) {
-
-    // is this check needed?  
-    for (var i = 0; i < this.state.fields.length; i++) {
-      if(this.state.fields[i] === this.state.sortField){
-        this.state.sortField = this.state.fields[i];
-      }
-    };
-
 
     if (a[this.state.sortField] < b[this.state.sortField])
        return -1;
@@ -73,9 +72,9 @@ var TableView = React.createClass({displayName: "TableView",
                 React.createElement("tr", null, 
                 
                   this.state.fields.map(function(f) {
-                    return React.createElement("th", null, 
+                    return React.createElement("th", {onClick: this.sort, "data-field-name": f}, 
                         React.createElement("span", null, f), 
-                        React.createElement("div", {ref: "myTextInput", "data-field-name": f, onClick: this.sort, className: "sort-up"})
+                        React.createElement("div", {ref: f, className: "sort-down hidden"})
                       )
                     ;
                   }.bind(this))
