@@ -26,11 +26,3 @@
   border-right: 0.6em solid transparent;  
   border-top: 0.6em solid #ABEAFC;
 }
-
-.react-table-view .hidden {
-  visibility: hidden;
-}
-
-.react-table-view .visible {
-  visibility: visible;
-}

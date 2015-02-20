@@ -39,7 +39,13 @@ var TableView = React.createClass({displayName: "TableView",
       field = e.target.parentNode.getAttribute("data-field-name");
     }
 
-    this.refs[field].getDOMNode().className = "sort-down visible";
+    // clear all field sort classes
+    for(var i = 0; i < this.state.fields.length; i++){
+      var fieldName = this.state.fields[i];
+      this.refs[fieldName].getDOMNode().className = "";
+    }
+
+    this.refs[field].getDOMNode().className = "sort-down";
 
     this.setState({ sortField: field });
     this.state.sortField = field;
@@ -74,7 +80,7 @@ var TableView = React.createClass({displayName: "TableView",
                   this.state.fields.map(function(f) {
                     return React.createElement("th", {onClick: this.sort, "data-field-name": f}, 
                         React.createElement("span", null, f), 
-                        React.createElement("div", {ref: f, className: "sort-down hidden"})
+                        React.createElement("div", {ref: f, className: ""})
                       )
                     ;
                   }.bind(this))
