@@ -34,9 +34,16 @@ var TableView = React.createClass({
     }
   },
   sort: function (e) {
+    // get the selected field
     var field = e.target.getAttribute("data-field-name");
     if(field === null){
       field = e.target.parentNode.getAttribute("data-field-name");
+    }
+
+    // get the current sort direction
+    var sortDirection = "DESC";
+    if(this.refs[field].getDOMNode().className === "sort-down"){
+      sortDirection = "ASC";
     }
 
     // clear all field sort classes
@@ -45,18 +52,28 @@ var TableView = React.createClass({
       this.refs[fieldName].getDOMNode().className = "";
     }
 
-    this.refs[field].getDOMNode().className = "sort-down";
+    // sort by field and direction
+    this.sortByField(field, sortDirection);
 
+  },
+  sortByField: function (field, direction) {
+    // set sortField for compare function
     this.setState({ sortField: field });
     this.state.sortField = field;
 
     var data = this.state.data;    
     data.sort(this.compare);
+
+    if(direction === "ASC"){
+      this.refs[field].getDOMNode().className = "sort-up";
+      data.reverse();
+    } else {
+      this.refs[field].getDOMNode().className = "sort-down";
+    }
     this.setState({ data: data });
-
   },
-  compare: function(a,b) {
 
+  compare: function(a,b) {
     if (a[this.state.sortField] < b[this.state.sortField])
        return -1;
     if (a[this.state.sortField] > b[this.state.sortField])
