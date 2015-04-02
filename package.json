@@ -1,6 +1,6 @@
 {
   "name": "react-table-view",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a sortable table-view component",
   "main": "js/table-view.js",
   "repository": {
