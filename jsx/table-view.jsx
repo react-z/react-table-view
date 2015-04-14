@@ -90,14 +90,14 @@ var TableView = React.createClass({
 
       <div className="react-table-view">
 
-        <table className="pure-table">
+        <table>
             <thead>
                 <tr>
                 {
                   this.state.fields.map(function(f) {
                     return <th onClick={this.sort} data-field-name={f}>
                         <span>{f}</span>
-                        <div ref={f} className=""></div>
+                        <div ref={f}></div>
                       </th>
                     ;
                   }.bind(this))
@@ -110,7 +110,7 @@ var TableView = React.createClass({
 
             {
               this.props.data.map(function(d) {
-               return <tr key={d.id} className="pure-table-odd">
+               return <tr key={d.id}>
                     <td>{d.id}</td>
                     <td>{d.make}</td>
                     <td>{d.model}</td>

@@ -90,14 +90,14 @@ var TableView = React.createClass({displayName: "TableView",
 
       React.createElement("div", {className: "react-table-view"}, 
 
-        React.createElement("table", {className: "pure-table"}, 
+        React.createElement("table", null, 
             React.createElement("thead", null, 
                 React.createElement("tr", null, 
                 
                   this.state.fields.map(function(f) {
                     return React.createElement("th", {onClick: this.sort, "data-field-name": f}, 
                         React.createElement("span", null, f), 
-                        React.createElement("div", {ref: f, className: ""})
+                        React.createElement("div", {ref: f})
                       )
                     ;
                   }.bind(this))
@@ -110,7 +110,7 @@ var TableView = React.createClass({displayName: "TableView",
 
             
               this.props.data.map(function(d) {
-               return React.createElement("tr", {key: d.id, className: "pure-table-odd"}, 
+               return React.createElement("tr", {key: d.id}, 
                     React.createElement("td", null, d.id), 
                     React.createElement("td", null, d.make), 
                     React.createElement("td", null, d.model), 

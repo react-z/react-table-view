@@ -23,9 +23,7 @@ React.renderComponent(<table-view options={OPTIONS} />, document.getElementById(
 
 ## Styles
 
-All React UI components are made to be compatible with [pure CSS](http://purecss.io/) which gives some nice responsive styles. 
-
-The components can also be used with your own custom style sheets. A minimal table-view.css style sheet is included as a guide.
+react-table-view can be used with your own custom styles. A minimal table-view.css style sheet is included as a guide.
 
 ## Development
 
