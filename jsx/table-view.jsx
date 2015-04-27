@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var SecondsTohhmmss = require('../js/SecondsTohhmmss.js');
 
 /**
  * Table view module

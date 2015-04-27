@@ -11,13 +11,24 @@ react-table-view is a simple table-view component using react.js.
 ## Usage
 
 ```javascript
+
 var React = require('react');
-var table-view = require('react-table-view');
+var TableView = require('../jsx/table-view.jsx');
 
-// delay option is the delay on showing the update of the table-view, it does not effect the table-view clock.
-var OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
+// must ensure all of your fields have values or react table view will not render
+var DATA = [ 
+  { id: 0, make: 'Honda', model: 'NSX', year: '1997'},
+  { id: 1, make: 'Toyota', model: 'Supra', year: '1996'},
+  { id: 2, make: 'Nissan', model: '300ZX', year: '1998'}
+]
 
-React.renderComponent(<table-view options={OPTIONS} />, document.getElementById("container"));
+React.render(
+	React.createElement(
+		TableView, 
+		{data: DATA}
+	),
+	document.getElementById("container")
+);
 
 ```
 
