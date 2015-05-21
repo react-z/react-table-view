@@ -8,10 +8,19 @@ var DATA = [
   { id: 2, make: 'Nissan', model: '300ZX', year: '1998'}
 ]
 
+var formatHanlder={
+	make: function(data) {
+		return <div className="formatHanlder"><a href="javascript:void(0);">{data.id}+{data.year}</a></div>;
+	},
+	model: function(data) {
+		return data.model;
+	}
+}
+
 React.render(
 	React.createElement(
 		TableView, 
-		{data: DATA}
+		{data: DATA,formatHanlder:formatHanlder}
 	),
 	document.getElementById("container")
 );

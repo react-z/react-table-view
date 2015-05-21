@@ -11,6 +11,7 @@ var TableView = React.createClass({
   getInitialState: function(){
      return {
        data: this.props.data,
+       formatHanlder: this.props.formatHanlder,
        fields: [],
        sortField: ''
      }
@@ -85,6 +86,9 @@ var TableView = React.createClass({
   componentWillUnmount: function() {
   },  
   render: function(){
+    var props = this.props;
+    var fH=props.formatHanlder;
+    var fields=this.state.fields;
     return (
 
       <div className="react-table-view">
@@ -107,17 +111,21 @@ var TableView = React.createClass({
 
             <tbody>
 
-            {
-              this.props.data.map(function(d) {
-               return <tr key={d.id}>
-                    <td>{d.id}</td>
-                    <td>{d.make}</td>
-                    <td>{d.model}</td>
-                    <td>{d.year}</td>
-                </tr>
-               ;
-             })
+               {
+                this.props.data.map(function(d) {
+                  return <tr key={d.id}>{
+                      fields.map(function(f) {
+                        if(fH && fH[f]) {
+                          return <td>{fH[f](d)}</td>
+                        }else {
+                          return <td>{d[f]}</td>
+                        }
+                      })
+                  }
+                  </tr>
+               })
              }
+
 
             </tbody>
         </table>
