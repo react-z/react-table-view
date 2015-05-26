@@ -13,7 +13,7 @@ react-table-view is a simple table-view component using react.js.
 ```javascript
 
 var React = require('react');
-var TableView = require('../jsx/table-view.jsx');
+var TableView = require('react-table-view');
 
 var DATA = [ 
   { id: 0, make: 'Honda', model: 'NSX', year: '1997'},
