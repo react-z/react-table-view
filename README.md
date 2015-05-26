@@ -37,13 +37,9 @@ var COLUMNS = {
 	}
 }
 
-
 React.render(
-	React.createElement(
-		TableView, 
-		{data: DATA, columns: COLUMNS }
-	),
-	document.getElementById("container")
+    <TableView data={DATA} columns={COLUMNS} />,
+    document.getElementById("container")
 );
 
 ```
