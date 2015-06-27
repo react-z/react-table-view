@@ -48,9 +48,9 @@ react-table-view can be used with your own custom styles. A minimal table-view.c
 
 ## Development
 
-  npm install
-  npm test
-  npm start
+    npm install
+    npm test
+    npm start
 
 ## License
 
