@@ -11,7 +11,7 @@ react-table-view is a simple table-view component using react.js.
 ```javascript
 
 import React from 'react'
-import TableView from '../lib/table-view'
+import TableView from 'react-table-view'
 
 // must ensure all of your fields have values
 let DATA = [ 
