@@ -1,24 +1,17 @@
-/** @jsx React.DOM */
-
-var React = require('react');
+import React from 'react'
 
 /**
  * Table view module
  * A simple sortable table component.
 **/
-
-var TableView = React.createClass({
+let TableView = React.createClass({
   getInitialState: function(){
      return {
        data: this.props.data,
-       columns: this.props.columns,
        fields: [],
        sortField: ''
      }
   },
-  /**
-   * Parse the fields from the table data
-  **/
   parseFields: function() {
     // can use Object.keys(data)[0]; for this
     for(var d in this.props.data) {
@@ -35,20 +28,20 @@ var TableView = React.createClass({
   },
   sort: function (e) {
     // get the selected field
-    var field = e.target.getAttribute("data-field-name");
+    let field = e.target.getAttribute("data-field-name");
     if(field === null){
       field = e.target.parentNode.getAttribute("data-field-name");
     }
 
     // get the current sort direction
-    var sortDirection = "DESC";
+    let sortDirection = "DESC";
     if(this.refs[field].getDOMNode().className === "sort-down"){
       sortDirection = "ASC";
     }
 
     // clear all field sort classes
-    for(var i = 0; i < this.state.fields.length; i++){
-      var fieldName = this.state.fields[i];
+    for(let i = 0; i < this.state.fields.length; i++){
+      let fieldName = this.state.fields[i];
       this.refs[fieldName].getDOMNode().className = "";
     }
 
@@ -61,7 +54,7 @@ var TableView = React.createClass({
     this.setState({ sortField: field });
     this.state.sortField = field;
 
-    var data = this.state.data;    
+    let data = this.state.data;    
     data.sort(this.compare);
 
     if(direction === "ASC"){
@@ -83,12 +76,9 @@ var TableView = React.createClass({
   componentDidMount: function() {
     this.parseFields();
   },
-  componentWillUnmount: function() {
-  },  
   render: function(){
-    var props = this.props;
-    var columns = props.columns;
-    var fields = this.state.fields;
+    let columns = this.props.columns;
+    let fields = this.state.fields;
 
     return (
 

@@ -2,8 +2,6 @@
 
 react-table-view is a simple table-view component using react.js.
 
-![](example/screenshot.png)
-
 ## Installation
 
 `npm install react-table-view --save`
@@ -12,34 +10,34 @@ react-table-view is a simple table-view component using react.js.
 
 ```javascript
 
-var React = require('react');
-var TableView = require('react-table-view');
+import React from 'react'
+import TableView from '../lib/table-view'
 
-var DATA = [ 
+// must ensure all of your fields have values
+let DATA = [ 
   { id: 0, make: 'Honda', model: 'NSX', year: '1997'},
   { id: 1, make: 'Toyota', model: 'Supra', year: '1996'},
   { id: 2, make: 'Nissan', model: '300ZX', year: '1998'}
 ]
 
-// Override the default display for each column, OPTIONAL
-
-var COLUMNS = {
-	make: function(data) {
-		return (
-			<span>What an awesome year: {data.year}</span>
-		);
-	},
-	model: function(data) {
-		return <a href="#">{data.model}</a>;
-	},
-	year: function(data) {
-		return <h3>hey man {data.id} </h3>;
-	}
+// define the look of each column, OPTIONAL
+let COLUMNS = {
+  make: function(data) {
+    return (
+    <span>What an awesome year: {data.year}</span>
+    );
+  },
+  model: function(data) {
+    return <a href="#">{data.model}</a>;
+  },
+  year: function(data) {
+    return <h3>hey man {data.id} </h3>;
+  }
 }
 
 React.render(
-    <TableView data={DATA} columns={COLUMNS} />,
-    document.getElementById("container")
+  <TableView data={DATA} columns={COLUMNS} />,
+  document.getElementById("container")
 );
 
 ```
@@ -50,10 +48,9 @@ react-table-view can be used with your own custom styles. A minimal table-view.c
 
 ## Development
 
-Initial set up, run:
-    
-    npm install
-
+  npm install
+  npm test
+  npm start
 
 ## License
 
