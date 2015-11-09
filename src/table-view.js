@@ -88,7 +88,7 @@ let TableView = React.createClass({
                 <tr>
                 {
                   this.state.fields.map(function(f) {
-                    return <th onClick={this.sort} data-field-name={f}>
+                    return <th key={f} onClick={this.sort} data-field-name={f}>
                         <span>{f}</span>
                         <div ref={f}></div>
                       </th>
@@ -106,9 +106,9 @@ let TableView = React.createClass({
                   return <tr key={d.id}>{
                       fields.map(function(f) {
                         if(columns && columns[f]) {
-                          return <td>{columns[f](d)}</td>
+                          return <td key={d.id + '_' + f}>{columns[f](d)}</td>
                         } else {
-                          return <td>{d[f]}</td>
+                          return <td key={d.id + '_' + f}>{d[f]}</td>
                         }
                       })
                   }
