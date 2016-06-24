@@ -1,60 +1,61 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 
 /**
  * Table view module
  * A simple sortable table component.
 **/
-let TableView = React.createClass({
-  getInitialState: function(){
-     return {
-       data: this.props.data,
-       fields: [],
-       sortField: ''
-     }
-  },
-  parseFields: function() {
-    // can use Object.keys(data)[0]; for this
-    for(var d in this.props.data) {
+export default class TableView extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      data: this.props.data,
+      fields: [],
+      sortField: ''
+    }
+  }
+
+  componentDidMount() {
+    this.parseFields()
+  }
+
+  parseFields() {
+    for(const d in this.props.data) {
       if(this.props.data.hasOwnProperty(d)){
-        var data = this.props.data[d];
-        var fieldsArray = []
-        for(var i in data){
-          console.log(i + data[i]);
+        const data = this.props.data[d];
+        const fieldsArray = [];
+        for(const i in data){
           fieldsArray.push(i);
         }
         this.setState({ fields: fieldsArray });
       }
     }
-  },
-  sort: function (e) {
-    // get the selected field
+  }
+
+  sort(e) {
+    /* get the selected field */
     let field = e.target.getAttribute("data-field-name");
     if(field === null){
       field = e.target.parentNode.getAttribute("data-field-name");
     }
-
-    // get the current sort direction
+    /* get the current sort direction */
     let sortDirection = "DESC";
     if(this.refs[field].getDOMNode().className === "sort-down"){
       sortDirection = "ASC";
     }
-
-    // clear all field sort classes
+    /* clear all field sort classes */
     for(let i = 0; i < this.state.fields.length; i++){
-      let fieldName = this.state.fields[i];
+      const fieldName = this.state.fields[i];
       this.refs[fieldName].getDOMNode().className = "";
     }
-
-    // sort by field and direction
     this.sortByField(field, sortDirection);
+  }
 
-  },
-  sortByField: function (field, direction) {
-    // set sortField for compare function
+  sortByField(field, direction) {
+    /* set sortField for compare function */
     this.setState({ sortField: field });
     this.state.sortField = field;
-
-    let data = this.state.data;    
+    let data = this.state.data;
     data.sort(this.compare);
 
     if(direction === "ASC"){
@@ -63,45 +64,37 @@ let TableView = React.createClass({
     } else {
       this.refs[field].getDOMNode().className = "sort-down";
     }
-    this.setState({ data: data });
-  },
+    this.setState({ data });
+  }
 
-  compare: function(a,b) {
+  compare(a,b) {
     if (a[this.state.sortField] < b[this.state.sortField])
        return -1;
     if (a[this.state.sortField] > b[this.state.sortField])
       return 1;
     return 0;
-  },
-  componentDidMount: function() {
-    this.parseFields();
-  },
-  render: function(){
-    let columns = this.props.columns;
-    let fields = this.state.fields;
+  }
+
+  render() {
+    let { columns } = this.props
+    let { fields } = this.state
 
     return (
-
       <div className="react-table-view">
-
         <table>
             <thead>
                 <tr>
                 {
-                  this.state.fields.map(function(f) {
-                    return <th onClick={this.sort} data-field-name={f}>
-                        <span>{f}</span>
-                        <div ref={f}></div>
-                      </th>
-                    ;
-                  }.bind(this))
+                  this.state.fields.map( (f, i) => (
+                    <th ley={i} onClick={this.sort.bind(this)} data-field-name={f}>
+                      <span>{f}</span>
+                      <div ref={f}></div>
+                    </th>
+                  ))
                 }
-
                 </tr>
             </thead>
-
             <tbody>
-
                {
                 this.props.data.map(function(d) {
                   return <tr key={d.id}>{
@@ -116,15 +109,9 @@ let TableView = React.createClass({
                   </tr>
                })
              }
-
-
             </tbody>
         </table>
-      
       </div>
-
-    );
-  }
-});
-
-module.exports = TableView;
+    )
+  };
+}
