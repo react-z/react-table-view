@@ -86,7 +86,7 @@ export default class TableView extends Component {
                 <tr>
                 {
                   this.state.fields.map( (f, i) => (
-                    <th ley={i} onClick={this.sort.bind(this)} data-field-name={f}>
+                    <th key={i} onClick={this.sort.bind(this)} data-field-name={f}>
                       <span>{f}</span>
                       <div ref={f}></div>
                     </th>
