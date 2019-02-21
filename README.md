@@ -1,10 +1,14 @@
 # react-table-view
 
+[![npm version](https://badge.fury.io/js/react-table-view.svg)](https://badge.fury.io/js/react-table-view)
+
+![](https://raw.githubusercontent.com/StevenIseki/react-table-view/master/example/screenshot.gif)
+
 react-table-view is a simple table-view component using react.
 
 ## Installation
 
-`npm install react-table-view --save`
+`yarn add react-table-view`
 
 ## Usage
 
@@ -48,14 +52,20 @@ ReactDOM.render( <TestComponent />, document.getElementById('root') )
 
 ## Styles
 
-react-table-view can be used with your own custom styles. A minimal [table.css](https://github.com/StevenIseki/react-table-view/blob/master/example/public/table.css) style sheet is included as a guide.
+react-table-view uses uses styled-components 💅 for the base styling.
 
 ## Development
+    yarn
+    npm run dev
 
-    npm install
+## Build
+    yarn
     npm run build
-    npm test
-    npm start
+    npm login
+    npm version patch
+    git add -A
+    git push origin master
+    npm publish
 
 ## License
 
