@@ -1,6 +1,6 @@
-import TableView from '../src/TableView' // 'react-table-view'
+import TableView from '../lib/TableView' // 'react-table-view'
 import ReactDOM from 'react-dom'
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
 class TestComponent extends Component {
   render() {
