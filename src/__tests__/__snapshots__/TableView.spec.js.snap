@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableView renders correctly and matches snapshot 1`] = `
+<div
+  className="sc-bdVaJa OHAEI"
+>
+  <table>
+    <thead>
+      <tr>
+        <th
+          data-field-name="id"
+          onClick={[Function]}
+        >
+          <span>
+            id
+          </span>
+          <i />
+        </th>
+        <th
+          data-field-name="make"
+          onClick={[Function]}
+        >
+          <span>
+            make
+          </span>
+          <i />
+        </th>
+        <th
+          data-field-name="model"
+          onClick={[Function]}
+        >
+          <span>
+            model
+          </span>
+          <i />
+        </th>
+        <th
+          data-field-name="year"
+          onClick={[Function]}
+        >
+          <span>
+            year
+          </span>
+          <i />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          0
+        </td>
+        <td>
+          <span>
+            What an awesome year: 
+            1997
+          </span>
+        </td>
+        <td>
+          <a>
+            NSX
+          </a>
+        </td>
+        <td>
+          <p
+            style={
+              Object {
+                "margin": "0 4px",
+                "textAlign": "left",
+              }
+            }
+          >
+            Id: 0
+            <br />
+            Year: 1997
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          <span>
+            What an awesome year: 
+            1996
+          </span>
+        </td>
+        <td>
+          <a>
+            Supra
+          </a>
+        </td>
+        <td>
+          <p
+            style={
+              Object {
+                "margin": "0 4px",
+                "textAlign": "left",
+              }
+            }
+          >
+            Id: 1
+            <br />
+            Year: 1996
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          <span>
+            What an awesome year: 
+            1998
+          </span>
+        </td>
+        <td>
+          <a>
+            300ZX
+          </a>
+        </td>
+        <td>
+          <p
+            style={
+              Object {
+                "margin": "0 4px",
+                "textAlign": "left",
+              }
+            }
+          >
+            Id: 2
+            <br />
+            Year: 1998
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
